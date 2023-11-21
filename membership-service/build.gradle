@@ -32,6 +32,7 @@ dependencies {
     // http://localhost:8080/swagger-ui.html 로 접속
     // reference : https://colabear754.tistory.com/99
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
+    testImplementation 'junit:junit:4.13.1'
 
     compileOnly 'org.projectlombok:lombok'
 

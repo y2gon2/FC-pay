@@ -1,9 +1,6 @@
 package dev.be.membership.domain;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Value;
+import lombok.*;
 
 
 // Membership
