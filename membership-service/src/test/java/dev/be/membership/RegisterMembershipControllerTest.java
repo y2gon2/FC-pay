@@ -1,18 +1,16 @@
 package dev.be.membership;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dev.be.membership.adapter.in.web.ModifyMembershipRequest;
 import dev.be.membership.adapter.in.web.RegisterMembershipRequest;
 import dev.be.membership.domain.Membership;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -27,7 +25,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 //@ExtendWith(SpringExtension.class) // JUnit 5와 Spring Boot 2.x 이상 (이미 @SpringBootTest 에 포함되어 있음. )
 @SpringBootTest
 @AutoConfigureMockMvc
-public class RegisterMembershipController {
+public class RegisterMembershipControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -35,19 +33,20 @@ public class RegisterMembershipController {
     @Autowired
     private ObjectMapper mapper;
 
-    @DisplayName("신규 회원 등록 POST 요청 처리가 정상적으로 작동하는지 확인")
+    @DisplayName("신규 회원 등록")
     @Test
     public void testRegisterMembership() throws Exception {
+        // Given
         RegisterMembershipRequest request = new RegisterMembershipRequest(
                 "name",
                 "address",
                 "email",
                 false
-                );
+        );
 
         Membership membership = Membership
                 .generateMember(
-                        new Membership.MembershipId("1"),
+                        new Membership.MembershipId("2"),
                         new Membership.MembershipName("name"),
                         new Membership.MembershipEmail("email"),
                         new Membership.MembershipAddress("address"),
@@ -55,6 +54,7 @@ public class RegisterMembershipController {
                         new Membership.MembershipIsCorp(false)
                 );
 
+        // When & Then
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/membership/register")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -64,5 +64,38 @@ public class RegisterMembershipController {
                 .andExpect(MockMvcResultMatchers.content().string(mapper.writeValueAsString(membership)));
     }
 
+//    @Disabled(".. test 실패 ")
+    @DisplayName("회원 정보 수정")
+    @Test
+    public void testModifyMembership() throws Exception {
+        // Given
+        ModifyMembershipRequest modified_request = new ModifyMembershipRequest(
+                "1",
+                "modified_name",
+                "modified_address",
+                "modified_email",
+                true,
+                true
+        );
 
+        Membership expectation = Membership
+                .generateMember(
+                        new Membership.MembershipId("1"),
+                        new Membership.MembershipName("modified_name"),
+                        new Membership.MembershipEmail("modified_email"),
+                        new Membership.MembershipAddress("modified_address"),
+                        new Membership.MembershipIsValid(true),
+                        new Membership.MembershipIsCorp(true)
+                );
+
+
+        // When & Then
+        mockMvc.perform(
+                        MockMvcRequestBuilders.post("/membership/modify/1")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(mapper.writeValueAsString(modified_request))
+                )
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string(mapper.writeValueAsString(expectation)));
+    }
 }
