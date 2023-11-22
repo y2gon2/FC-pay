@@ -1,6 +1,6 @@
 package dev.be.membership.adapter.in.web;
 
-import common.WebAdapter;
+import dev.be.common.WebAdapter;
 import dev.be.membership.application.port.in.FindMembershipCommand;
 import dev.be.membership.application.port.in.FindMembershipUseCase;
 import dev.be.membership.domain.Membership;

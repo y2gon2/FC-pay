@@ -1,7 +1,7 @@
 package dev.be.membership.application.port.in;
 
 
-import common.SelfValidating;
+import dev.be.common.SelfValidating;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;

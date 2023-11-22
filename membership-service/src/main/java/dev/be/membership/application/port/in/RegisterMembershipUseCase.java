@@ -1,6 +1,5 @@
 package dev.be.membership.application.port.in;
 
-import common.UseCase;
 import dev.be.membership.domain.Membership;
 
 // by ChatGPT

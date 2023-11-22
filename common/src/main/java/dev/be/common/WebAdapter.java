@@ -1,4 +1,4 @@
-package common;
+package dev.be.common;
 
 import org.springframework.core.annotation.AliasFor;
 import org.springframework.stereotype.Component;

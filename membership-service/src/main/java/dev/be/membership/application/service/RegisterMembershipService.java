@@ -1,6 +1,6 @@
 package dev.be.membership.application.service;
 
-import common.UseCase;
+import dev.be.common.UseCase;
 import dev.be.membership.adapter.out.persistence.MembershipJpaEntity;
 import dev.be.membership.adapter.out.persistence.MembershipMapper;
 import dev.be.membership.application.port.in.RegisterMembershipCommand;

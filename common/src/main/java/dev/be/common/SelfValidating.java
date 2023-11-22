@@ -1,8 +1,6 @@
-package common;
+package dev.be.common;
 
 import jakarta.validation.*;
-
-
 import java.util.Set;
 
 // 이 추상 class 내 method 를 구현하는 class 의 멤버들을 self validating 하기 위한 추상 class
