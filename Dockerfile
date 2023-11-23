@@ -2,6 +2,9 @@
 # Use the official Windows Server Core as the base image
 FROM openjdk:17-jdk-slim
 
+# compile profile prod => docker 용 (MySQL)
+ENV SPRING_PROFILES_ACTIVE=prod
+
 # open 시켜놓을 port
 EXPOSE 8080
 

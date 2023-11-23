@@ -1,10 +1,9 @@
 package dev.be.membership;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dev.be.membership.adapter.in.web.ModifyMembershipRequest;
 import dev.be.membership.adapter.in.web.RegisterMembershipRequest;
 import dev.be.membership.domain.Membership;
-import org.junit.jupiter.api.Disabled;
+import dev.be.membership.adapter.in.web.ModifyMembershipRequest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

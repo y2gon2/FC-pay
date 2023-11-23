@@ -1,12 +1,12 @@
 package dev.be.membership.application.service;
 
-import dev.be.common.UseCase;
+import dev.be.banking.common.UseCase;
 import dev.be.membership.adapter.out.persistence.MembershipJpaEntity;
 import dev.be.membership.adapter.out.persistence.MembershipMapper;
-import dev.be.membership.application.port.in.ModifyMembershipCommand;
 import dev.be.membership.application.port.in.ModifyMembershipUseCase;
 import dev.be.membership.application.port.out.ModifyMembershipPort;
 import dev.be.membership.domain.Membership;
+import dev.be.membership.application.port.in.ModifyMembershipCommand;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 

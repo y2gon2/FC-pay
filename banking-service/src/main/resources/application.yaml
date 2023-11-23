@@ -1,0 +1,32 @@
+spring:
+  profiles:
+    active: dev
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:test
+    username: user
+    password:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console # http://localhost:8080/h2-console 로 접속
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true #  JPA가 데이터베이스 스키마를 생성한 후 data.sql이 실행되도록 순서를 조정
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod

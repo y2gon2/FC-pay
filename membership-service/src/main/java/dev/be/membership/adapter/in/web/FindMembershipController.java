@@ -1,8 +1,8 @@
 package dev.be.membership.adapter.in.web;
 
-import dev.be.common.WebAdapter;
 import dev.be.membership.application.port.in.FindMembershipCommand;
 import dev.be.membership.application.port.in.FindMembershipUseCase;
+import dev.be.banking.common.WebAdapter;
 import dev.be.membership.domain.Membership;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

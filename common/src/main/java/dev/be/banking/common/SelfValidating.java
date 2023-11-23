@@ -1,4 +1,4 @@
-package dev.be.common;
+package dev.be.banking.common;
 
 import jakarta.validation.*;
 import java.util.Set;

@@ -1,10 +1,10 @@
 package dev.be.membership.application.service;
 
-import dev.be.common.UseCase;
 import dev.be.membership.adapter.out.persistence.MembershipJpaEntity;
 import dev.be.membership.adapter.out.persistence.MembershipMapper;
 import dev.be.membership.application.port.in.RegisterMembershipCommand;
 import dev.be.membership.application.port.in.RegisterMembershipUseCase;
+import dev.be.banking.common.UseCase;
 import dev.be.membership.application.port.out.RegisterMembershipPort;
 import dev.be.membership.domain.Membership;
 import lombok.RequiredArgsConstructor;

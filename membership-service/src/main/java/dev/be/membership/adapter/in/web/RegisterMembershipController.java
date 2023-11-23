@@ -1,9 +1,9 @@
 package dev.be.membership.adapter.in.web;
 
-import dev.be.common.WebAdapter;
 import dev.be.membership.application.port.in.RegisterMembershipCommand;
 import dev.be.membership.application.port.in.RegisterMembershipUseCase;
 import dev.be.membership.domain.Membership;
+import dev.be.banking.common.WebAdapter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
