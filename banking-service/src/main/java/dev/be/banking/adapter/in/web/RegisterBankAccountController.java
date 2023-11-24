@@ -28,6 +28,14 @@ public class RegisterBankAccountController {
                 .linkedStatusIsValid(request.isLinkedStatusIsValid())
                 .build();
 
-        return registerBankAccountUseCase.registerBankAccount(command);
+        RegisteredBankAccount registeredBankAccount = registerBankAccountUseCase.registerBankAccount(command);
+
+        if (registeredBankAccount == null) {
+            // TODO : Error Handling
+//            throw new RuntimeException("등록 실패 : 유효하지 않은 뱅킹 정보");
+            return null;
+        }
+
+        return registeredBankAccount;
     }
 }
